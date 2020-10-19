@@ -1,0 +1,27 @@
+name: Build and Run
+ 
+on: 
+    push:
+        branches: [main]
+ 
+jobs:
+  build:
+    runs-on: windows-latest
+
+    env:
+      Solution_Name: AlertToCareAPI.sln 
+ 
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+    
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1 
+      with:
+        dotnet-version: 3.1.301
+     
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+        
+    - name: Run unit tests
+      run: dotnet test --no-build --configuration Release
