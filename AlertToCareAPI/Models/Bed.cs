@@ -7,4 +7,5 @@ namespace AlertToCareAPI.Models
         public string IcuId { get; set; }
         public bool Status { get; set; }
     }
+   //Bed
 }
